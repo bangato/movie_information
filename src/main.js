@@ -1,8 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-Vue.config.productionTip = false
+
+import 'bootstrap'
+import 'bootstrap/js/dist/util';
+import 'bootstrap/js/dist/dropdown';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  el: '#app',
+  render: h => h(App)
+})

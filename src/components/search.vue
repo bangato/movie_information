@@ -30,9 +30,9 @@
 			if (this.query=="") {	
 				alert("enter film tittle");
 			
-			}else if (this.query2==""){
-				alert("enter year of realese")
-			}
+			}//else if (this.query2==""){
+			// 	alert("enter year of realese")
+			// }
 			else{
 				this.$emit('SearchRequested', this.query, this.query2);
 			}

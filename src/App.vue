@@ -2,6 +2,7 @@
   <div id="app">
     <Search v-on:SearchRequested="handleSearch"></Search>
     <Film v-bind:films=films></Film>
+    
   </div>
   
 </template>
@@ -31,29 +32,41 @@ export default {
   })
     }
     },
-    // created(){
-    //     fetch('http://www.omdbapi.com/?t=Fast')
-    //     .then((res) => { return res.json() } )
-    //     .then((res) =>{ 
-    //       this.films=res;
-    //    console.log(this.films.Error)
-    //     })
-    // }
+
+    
+    created(){
+        fetch('http://www.omdbapi.com/?s=fast&apikey=d727fc5a')
+        .then((res) => { return res.json() } )
+        .then((res) =>{ 
+          this.films=res;
+       //console.log(this.films.Error)
+        })
+    }
   }
 
 </script>
 
 <style>
-#app {
+/* #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+   */
+
+   #app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 10px;
+}
   
 
   
-}
+
 @import'~bootstrap/dist/css/bootstrap.css'
 </style>
 
-http://www.omdbapi.com/?i=tt3896198&apikey=d727fc5a
+/* http://www.omdbapi.com/?i=tt3896198&apikey=d727fc5a
+gambar = {Search[].Poster} tittle = {Search[].Title} year = {Search[].Year} */

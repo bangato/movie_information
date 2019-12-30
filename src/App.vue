@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <Search v-on:SearchRequested="handleSearch"></Search>
-    <Film v-bind:films=films></Film>
-    
+    <Film v-bind:films=films></Film>    
   </div>
   
 </template>
@@ -60,13 +59,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 10px;
-}
-  
-
-  
+} 
 
 @import'~bootstrap/dist/css/bootstrap.css'
 </style>
-
-/* http://www.omdbapi.com/?i=tt3896198&apikey=d727fc5a
-gambar = {Search[].Poster} tittle = {Search[].Title} year = {Search[].Year} */

@@ -1,50 +1,23 @@
 <template>		
 			
-	<div class="new"> 
-		
-		
-	<div v-bind="films" v-if="films.Error!='Movie not found!'">
-
-   <div class="column" v-for="film in films.Search" :key="film.Title">
-        
-    <div class="row">
-		
-        <div class="col-12 mt-3">     
-           
-                        
-            <div class="card">
-                
-				
-                <div class="card-horizontal" >
-                    <div class="img-square-wrapper" >	
-                        <img :src="film.Poster" style="width:150px">
-                    </div>
-                    <div class="card-body" >
-                        <h4 class="card-title">{{film.Title}}</h4>
-                        <p class="card-text">{{film.Year}}</p>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    
-                </div>
-            </div>
+	<div class="main" v-bind="films" v-if="films.Error!='Movie not found!'">
+  <h1>MOVIES LIST</h1>
+  <ul class="cards" >
+    <li class="cards_item" v-for="film in films.Search" :key="film.Title">
+      <div class="card">
+        <div class="card_image"><img :src="film.Poster"></div>
+        <div class="card_content">
+          <h2 class="card_title">{{film.Title}}</h2>
+          <p class="card_text">{{film.Year}}</p>
+          <h2 class="card_text">imdbID : {{film.imdbID}}</h2>
         </div>
-    </div>
-</div>		
+      </div>
+    </li>
+    
+  </ul>
+  <h3 class="made_by">Create By Gatot Vayana</h3>
+</div>
 
-
-      
-	</div>
-	<div  v-bind="films" v-if="films.Error=='Movie not found!'">
-				<h4>{{films.Error}}</h4>
-
-	</div>
-
-	
-	</div>
-
-
-	
 
 	
 </template>
@@ -59,120 +32,123 @@
 </script>
 
 <style> 
-.new img{
-	float:left;
-	margin-right:40px;
-    
-}
-.new h4{
-	margin-top:23px;
-}
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 
-.card-horizontal {
-    display: flex;
-    flex: 1 1 auto;
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
+html {
+  background-color: #ecf9ff;
 }
 
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+body {
+  color: #272727;
+  font-family: 'Quicksand', serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
 }
 
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
+.main{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.btn {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards_item {
+  display: flex;
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
   }
-  }
+}
 
-  .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card_content {
+  padding: 1rem;
+  background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+}
+
+.card_title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.card_text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;    
+  font-weight: 400;
+}
+.made_by{
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 35px;
   text-align: center;
-  background-color: #f1f1f1;
-  max-width:500px;
-  margin: auto;
-  height: 300px;
 }
 
-/* ul{
-
-    }
-    li{
-        list-style-type: none;
-        float: left;
-        margin: 20px;
-    } */
 </style>
-
-<!-- <div class="abc">
-                <h1 class="subheading grey --text">Team</h1>
-
-	<v-container class="my-5">
-
-        <v-layout row wrap>
-            <v-flex xs12 sm6 md4 lg3 v-for="film in films" :key="film[1].Title">
-                <v-card flat class="text-xs-center ma-3">
-                    <v-responsive class="pt-4">
-                         IMAGE GOES HERE
-                    </v-responsive>                   
-                    <v-card-text>
-                        <div class="subheading">{{film[1].Title}}</div>
-                        <div class="grey--text">{{film[1].Year}}</div>
-                    </v-card-text>
-                <v-card-actions>
-                    <v-btn flat color="grey">
-                        <v-icon small left>message</v-icon>
-                        <span></span>
-                    </v-btn>
-                </v-card-actions>
-                </v-card>
-            </v-flex>
-        </v-layout>
-	</v-container>
-
-			</div> -->
-
-
-
-            
-
-
- <!-- <div class="flex flex-wrap mb-4">
-        <div class="xl:w-1/3 lg:w-1/3 md:w-1/3 sm:w-full mb-5 px-4" v-for="movie in films.Search" :key="movie.Title">
-            <div class="rounded overflow-hidden shadow-lg">
-                <img class="w-full" :src="movie.Poster">
-                <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">
-                        {{ movie.title }}
-                        <small class="text-yellow-dark">{{ movie.year}}</small>
-                    </div>
-                    <small class="text-grey text-base">
-                        {{ movie.Type}}
-                    </small>
-                    <p class="text-grey-darker text-base">
-                        {{ movie.overview }}
-                    </p>
-                </div>
-                <div class="px-6 py-4">
-                    <span class="inline-block bg-purple-lighter rounded-full px-3 py-1 text-sm font-semibold text-purple-darkest mr-2">Language: {{ movie.original_language }}</span>
-                    <span class="inline-block bg-purple-lighter rounded-full px-3 py-1 text-sm font-semibold text-purple-darkest mr-2">Popularity: {{ movie.popularity }}</span>
-                </div>
-            </div>
-        </div>
-
-    </div> -->

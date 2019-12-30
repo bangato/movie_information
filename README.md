@@ -2,7 +2,7 @@
 
 Movie Information is a web apps to show an information of movies that we search for.
 
-![movie](https://user-images.githubusercontent.com/26354086/71559703-0378db80-2a94-11ea-8dfe-21009a49d38a.png)
+![movie](https://user-images.githubusercontent.com/26354086/71569319-d44c8380-2b00-11ea-8a51-07ff257db940.png)
 
 
 ## Project setup

@@ -1,3 +1,4 @@
+#DEPRECATED (NOT UPDATING)
 # movie_information
 
 Movie Information is a web apps to show an information of movies that we search for.
